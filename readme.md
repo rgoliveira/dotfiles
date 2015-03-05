@@ -16,10 +16,10 @@ And then you'll create two [symlinks](http://en.wikipedia.org/wiki/Symbolic_link
 ln -s /repos/dotvim/.vimrc ~/.vimrc
 ln -s /repos/dotvim/.vim ~/.vim
 ```
+*Ps: some plugins may require additional packages*
 
 And... ta-da! You're all set.
 
 Whenever you need to modify something inside your `~/.vim` (or the `~/.vimrc`), just push the changes to the repo. Just remember to pull everywhere else you have this setup.
 
 Happy editing!
-
