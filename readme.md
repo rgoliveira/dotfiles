@@ -6,20 +6,21 @@ You'll download all the files and place them on the correct location, and forget
 This is the "normal" way of doing it, as of old-school.
 
 ### 2. Versioned, powered by Git (*aka the awesome way*)
-You'll clone the repo:
+One-liner:
 
-    git clone https://bitbucket.com/rgoliveira/dotvim.git
+    git clone https://bitbucket.com/rgoliveira/dotvim.git; && cd dotvim; && ./setup.sh
 
-And then you'll create two [symlinks](http://en.wikipedia.org/wiki/Symbolic_link):
-```
-# suppose you cloned into /repos/dotvim
-ln -s /repos/dotvim/.vimrc ~/.vimrc
-ln -s /repos/dotvim/.vim ~/.vim
-```
-*Ps: some plugins may require additional packages*
+
+**!!! WARNING: the following files/directories will be overwritten:**
+
+- `~/.vimrc`
+- `~/.gvimrc`
+- `~/.vim`
+
+*Ps: some plugins may require additional stuff, like ctags, for example...*
 
 And... ta-da! You're all set.
 
 Whenever you need to modify something inside your `~/.vim` (or the `~/.vimrc`), just push the changes to the repo. Just remember to pull everywhere else you have this setup.
 
-Happy editing!
+Happy vimming!
