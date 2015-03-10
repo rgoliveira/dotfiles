@@ -10,6 +10,11 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
+" default themes
+colorscheme slate
+let g:airline_theme = 'wombat'
+
+
 " syntastic settings
 " ps.: these are the recommend for new users, as in its github page
 set statusline+=%#warningmsg#
@@ -30,7 +35,7 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:syntastic_javascript_checkers = ['jshint']
 
 " airline settings
-let g:airline_theme = 'solarized'
+let g:airline_theme = 'wombat'
 
 "
 " Features {{{1
