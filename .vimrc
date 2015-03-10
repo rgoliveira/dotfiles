@@ -14,6 +14,8 @@ execute pathogen#infect()
 colorscheme slate
 let g:airline_theme = 'wombat'
 
+" mappings
+nmap <F8> :TagbarToggle<CR>
 
 " syntastic settings
 " ps.: these are the recommend for new users, as in its github page
