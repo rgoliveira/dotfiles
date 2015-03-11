@@ -36,8 +36,8 @@ let g:ctrlp_working_path_mode = 'ra'
 " syntastic settings
 let g:syntastic_javascript_checkers = ['jshint']
 
-" airline settings
-let g:airline_theme = 'wombat'
+"set *.md always as markdown
+au BufRead,BufNewFile *.md		set filetype=markdown
 
 "
 " Features {{{1
@@ -52,7 +52,6 @@ set nocompatible
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
-filetype plugin on
 filetype indent plugin on
 
 " Enable syntax highlighting
