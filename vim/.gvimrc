@@ -1,3 +1,1 @@
-colorscheme Tomorrow-Night-Eighties
-let g:airline_theme = 'tomorrow'
-
+" nothing to see here...

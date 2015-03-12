@@ -57,6 +57,8 @@ filetype indent plugin on
 " Enable syntax highlighting
 syntax on
 
+" disable line wrapping
+set nowrap
 
 "------------------------------------------------------------
 " Must have options {{{1
