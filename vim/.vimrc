@@ -16,6 +16,7 @@ let g:airline_theme = 'wombat'
 
 " mappings
 nmap <F8> :TagbarToggle<CR>
+nmap <silent> <F7> :NERDTreeFocus<CR>
 
 " syntastic settings
 " ps.: these are the recommend for new users, as in its github page
