@@ -116,8 +116,5 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# set up dircolors to work with solarized theme
-eval `dircolors ~/projetos/dircolors-solarized/dircolors.ansi-dark`
-
 # prompt on remove file
 alias rm='rm -i'
