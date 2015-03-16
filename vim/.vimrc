@@ -60,6 +60,8 @@ syntax on
 
 " disable line wrapping
 set nowrap
+" set sidescroll size to one char. in slow terminals, set to zero.
+set ss=1
 
 "------------------------------------------------------------
 " Must have options {{{1
