@@ -1,11 +1,9 @@
 " URL: http://vim.wikia.com/wiki/Example_vimrc
-" Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
-" Description: A minimal, but feature rich, example .vimrc. If you are a
-"              newbie, basing your first .vimrc on this file is a good choice.
-"              If you're a more advanced user, building your own .vimrc based
-"              on this file is still a good idea.
+" Authors: rgoliveira.com
+" Description:  My personal .vimrc.
+"               Based off http://vim.wikia.com/wiki/Example_vimrc
 
-"------------------------------------------------------------
+"-------------------------------------------------------------------------------
 " manually run pathogen file
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
@@ -14,31 +12,24 @@ execute pathogen#infect()
 colorscheme slate
 let g:airline_theme = 'wombat'
 
-" mappings
-nmap <F8> :TagbarToggle<CR>
-nmap <silent> <F7> :NERDTreeFocus<CR>
-
 " syntastic settings
 " ps.: these are the recommend for new users, as in its github page
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['jshint']
 
 " ctrlp settings
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
-" syntastic settings
-let g:syntastic_javascript_checkers = ['jshint']
-
 "set *.md always as markdown
-au BufRead,BufNewFile *.md		set filetype=markdown
+au BufRead,BufNewFile *.md set filetype=markdown
 
 "
 " Features {{{1
@@ -58,12 +49,13 @@ filetype indent plugin on
 " Enable syntax highlighting
 syntax on
 
-" disable line wrapping
+" Disable line wrapping
 set nowrap
-" set sidescroll size to one char. in slow terminals, set to zero.
+
+" Set sidescroll size to one char. In slow terminals, set to zero.
 set ss=1
 
-"------------------------------------------------------------
+"-------------------------------------------------------------------------------
 " Must have options {{{1
 "
 " These are highly recommended options.
@@ -199,5 +191,10 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
+" F8 to toggle tagbar
+nmap <F8> :TagbarToggle<CR>
 
+" Fat fingers
+nmap :Q :q
+nmap :W :w
 "------------------------------------------------------------
