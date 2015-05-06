@@ -147,10 +147,11 @@ set mouse=a
 " "press <Enter> to continue"
 set cmdheight=2
 
-" Display line numbers on the left
+" Display line numbers on the left, relative to current line
 set number
+set rnu
 
-" Use relative numbers when out of insert mode for easier movement
+" Use absolute numbers when in insert mode
 au InsertEnter * set nornu
 au InsertLeave * set rnu
 
