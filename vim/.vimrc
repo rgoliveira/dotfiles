@@ -11,6 +11,7 @@ execute pathogen#infect()
 " default themes
 colorscheme slate
 let g:airline_theme = 'wombat'
+let g:airline#extensions#tabline#enabled = 1
 
 " syntastic settings
 " ps.: these are the recommend for new users, as in its github page
