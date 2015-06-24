@@ -31,6 +31,13 @@ let g:ctrlp_working_path_mode = 'ra'
 "set *.md always as markdown
 au BufRead,BufNewFile *.md set filetype=markdown
 
+" C/C++ source files options
+au FileTYpe c,cpp call SetCOptions()
+function SetCOptions()
+  set foldmethod=syntax
+  set foldnestmax=1
+endfunction
+
 "
 " Features {{{1
 "
@@ -198,4 +205,10 @@ nmap <F8> :TagbarToggle<CR>
 " Fat fingers
 nmap :Q :q
 nmap :W :w
+"------------------------------------------------------------
+
+"------------------------------------------------------------
+" Project specific options
+set exrc
+set secure
 "------------------------------------------------------------
