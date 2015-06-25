@@ -50,6 +50,8 @@ set emacsdir=%dothome%\vim
 echo   - Cleaning up old files/links (if exist)...
 del /Q /S %USERPROFILE%\.emacs.d    >nul 2>&1
 del /Q /S %USERPROFILE%\.emacs      >nul 2>&1
+:: set up emacs home via user environment variable
+setx HOME %USERPROFILE% >nul 2>&1
 
 echo   - Creating new links...
 mklink    %USERPROFILE%\.emacs    %emacsdir%\.emacs   >nul 2>&1
