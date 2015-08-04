@@ -29,12 +29,16 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
+" vim-table-mode
+let g:table_mode_corner_corner="+"
+let g:table_mode_header_fillchar="="
+
 "set *.md always as markdown
 au BufRead,BufNewFile *.md set filetype=markdown
 
 " C/C++ source files options
 au FileTYpe c,cpp call SetCOptions()
-function SetCOptions()
+function! SetCOptions()
   set foldmethod=syntax
   set foldnestmax=1
 endfunction
