@@ -1,0 +1,6 @@
+[submodule "emacs/.emacs.d/other-plugins/org-reveal"]
+	path = emacs/.emacs.d/other-plugins/org-reveal
+	url = https://github.com/yjwen/org-reveal.git
+[submodule "emacs/.emacs.d/other-plugins/reveal.js"]
+	path = emacs/.emacs.d/other-plugins/reveal.js
+	url = https://github.com/hakimel/reveal.js
