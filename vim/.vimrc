@@ -210,6 +210,10 @@ nmap <F8> :TagbarToggle<CR>
 " Fat fingers
 nmap :Q :q
 nmap :W :w
+
+" (C)hange to (D)irectory of (C)urrent file
+" command CDC cd %:p:h
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 "------------------------------------------------------------
 
 "------------------------------------------------------------
