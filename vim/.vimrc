@@ -33,8 +33,18 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:table_mode_corner_corner="+"
 let g:table_mode_header_fillchar="="
 
-"set *.md always as markdown
+" set *.md always as markdown
 au BufRead,BufNewFile *.md set filetype=markdown
+
+" Delphi sources
+au BufNewFile,BufRead *.pas,*.PAS set ft=delphi
+" Delphi project file
+au BufNewFile,BufRead *.dpr,*.DPR set ft=delphi
+" Delphi form file
+au BufNewFile,BufRead *.dfm,*.DFM set ft=delphi
+au BufNewFile,BufRead *.xfm,*.XFM set ft=delphi
+" Delphi package file
+au BufNewFile,BufRead *.dpk,*.DPK set ft=delphi
 
 " C/C++ source files options
 au FileTYpe c,cpp call SetCOptions()
