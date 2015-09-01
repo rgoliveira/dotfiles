@@ -33,6 +33,11 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:table_mode_corner_corner="+"
 let g:table_mode_header_fillchar="="
 
+" emmet-vim
+" use only for html/css
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
 " set *.md always as markdown
 au BufRead,BufNewFile *.md set filetype=markdown
 
