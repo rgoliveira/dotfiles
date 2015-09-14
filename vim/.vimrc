@@ -33,8 +33,23 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:table_mode_corner_corner="+"
 let g:table_mode_header_fillchar="="
 
-"set *.md always as markdown
+" emmet-vim
+" use only for html/css
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
+" set *.md always as markdown
 au BufRead,BufNewFile *.md set filetype=markdown
+
+" Delphi sources
+au BufNewFile,BufRead *.pas,*.PAS set ft=delphi
+" Delphi project file
+au BufNewFile,BufRead *.dpr,*.DPR set ft=delphi
+" Delphi form file
+au BufNewFile,BufRead *.dfm,*.DFM set ft=delphi
+au BufNewFile,BufRead *.xfm,*.XFM set ft=delphi
+" Delphi package file
+au BufNewFile,BufRead *.dpk,*.DPK set ft=delphi
 
 " C/C++ source files options
 au FileTYpe c,cpp call SetCOptions()
@@ -210,6 +225,10 @@ nmap <F8> :TagbarToggle<CR>
 " Fat fingers
 nmap :Q :q
 nmap :W :w
+
+" (C)hange to (D)irectory of (C)urrent file
+" command CDC cd %:p:h
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 "------------------------------------------------------------
 
 "------------------------------------------------------------
