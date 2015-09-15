@@ -37,6 +37,7 @@ let g:vo_modules_load .= ':newhoist'
 
 " colorscheme votl_light			" set a VO specific colorscheme
 colorscheme Tomorrow-Night-Eighties
+AirlineTheme wombat
 
 "Checkbox Tags
 " Tags can contain any word characters (:help word)
