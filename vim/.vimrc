@@ -13,6 +13,10 @@ colorscheme slate
 let g:airline_theme = 'wombat'
 let g:airline#extensions#tabline#enabled = 1
 
+if has('gui_running')
+  set guifont=DejaVu_Sans_Mono:h10:cANSI
+endif
+
 " syntastic settings
 " ps.: these are the recommend for new users, as in its github page
 set statusline+=%#warningmsg#
@@ -37,6 +41,22 @@ let g:table_mode_header_fillchar="="
 " use only for html/css
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
+
+" vim-javascript options
+let g:javascript_conceal = 1
+let g:javascript_conceal_function   = "ƒ"
+"let g:javascript_conceal_null       = "ø"
+"let g:javascript_conceal_this       = "@"
+"let g:javascript_conceal_return     = "⇚"
+"let g:javascript_conceal_undefined  = "¿"
+"let g:javascript_conceal_NaN        = "ℕ"
+"let g:javascript_conceal_prototype  = "¶"
+"let g:javascript_conceal_static     = "•"
+"let g:javascript_conceal_super      = "Ω"
+au BufRead,BufNewFile *.js set conceallevel=2
+au BufRead,BufNewFile *.js set foldmethod=syntax
+" disable highligh for Conceal
+au BufRead,BufNewFile *.js hi clear Conceal
 
 " set *.md always as markdown
 au BufRead,BufNewFile *.md set filetype=markdown
@@ -229,6 +249,16 @@ nmap :W :w
 " (C)hange to (D)irectory of (C)urrent file
 " command CDC cd %:p:h
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+
+" In normal mode, arrow keys are used to navigate...
+" buffers
+nmap <Left> :bprevious<CR>
+nmap <Right> :bnext<CR>
+" windows
+nmap <C-Up> <C-W>k
+nmap <C-Down> <C-W>j
+nmap <C-Left> <C-W>h
+nmap <C-Right> <C-W>l
 "------------------------------------------------------------
 
 "------------------------------------------------------------
