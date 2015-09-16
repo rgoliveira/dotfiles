@@ -1,10 +1,10 @@
 "Extra configurations and mappings  ******************************************
-"This mapping is fold-level and fold-state dependent 
+"This mapping is fold-level and fold-state dependent
 "map <S-Down> dd p
 "map <S-Up> dd <up>P
 
 "Common Plugins
-" The vo_modules_load variable holds name of all VO modules you want to load. 
+" The vo_modules_load variable holds name of all VO modules you want to load.
 " If you do not want to load any VO modules leave it blank
 
 " This setting loads the checkboxes, tags and smart_paste plugins as default.
@@ -36,8 +36,6 @@ let g:vo_modules_load .= ':newhoist'
 "setlocal nowrap
 
 " colorscheme votl_light			" set a VO specific colorscheme
-colorscheme Tomorrow-Night-Eighties
-AirlineTheme wombat
 
 "Checkbox Tags
 " Tags can contain any word characters (:help word)
