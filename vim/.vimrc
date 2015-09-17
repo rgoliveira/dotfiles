@@ -1,23 +1,35 @@
+"-------------------------------------------------------------------------------
 " URL: http://vim.wikia.com/wiki/Example_vimrc
 " Authors: rgoliveira.com
 " Description:  My personal .vimrc.
 "               Based off http://vim.wikia.com/wiki/Example_vimrc
-
 "-------------------------------------------------------------------------------
+
+" init {{{1
+
 " manually run pathogen file
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
-" default themes
-colorscheme slate
-let g:airline_theme = 'wombat'
-let g:airline#extensions#tabline#enabled = 1
+" Themes {{{1
+
+colorscheme Tomorrow-Night-Eighties
+let g:airline_theme = 'tomorrow'
+"colorscheme slate
+"let g:airline_theme = 'wombat'
+
+" GUI specific {{{1
 
 if has('gui_running')
   set guifont=DejaVu_Sans_Mono:h10:cANSI
 endif
 
-" syntastic settings
+" Airline (and extensions) {{{1
+
+let g:airline#extensions#tabline#enabled = 1
+
+" Syntastic {{{1
+
 " ps.: these are the recommend for new users, as in its github page
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -28,21 +40,25 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['jshint']
 
-" ctrlp settings
+" ctrlp {{{1
+
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
-" vim-table-mode
+" vim-table-mode {{{1
+
 let g:table_mode_corner_corner="+"
 let g:table_mode_header_fillchar="="
 
-" emmet-vim
+" emmet-vim {{{1
+
 " use only for html/css
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
-" vim-javascript options
+" vim-javascript {{{1
+
 let g:javascript_conceal = 1
 let g:javascript_conceal_function   = "ƒ"
 "let g:javascript_conceal_null       = "ø"
@@ -53,11 +69,18 @@ let g:javascript_conceal_function   = "ƒ"
 "let g:javascript_conceal_prototype  = "¶"
 "let g:javascript_conceal_static     = "•"
 "let g:javascript_conceal_super      = "Ω"
-au BufRead,BufNewFile *.js set conceallevel=2
-au BufRead,BufNewFile *.js set foldmethod=syntax
-" disable highligh for Conceal
-au BufRead,BufNewFile *.js hi clear Conceal
 
+au BufRead,BufNewFile *.js call SetJSOptions()
+function! SetJSOptions()
+  setlocal foldmethod=syntax
+  setlocal conceallevel=2
+  " disable highligh for Conceal
+  hi clear Conceal
+endfunction
+
+" Filetype detection {{{1
+
+" General {{{
 " set *.md always as markdown
 au BufRead,BufNewFile *.md set filetype=markdown
 
@@ -70,15 +93,21 @@ au BufNewFile,BufRead *.dfm,*.DFM set ft=delphi
 au BufNewFile,BufRead *.xfm,*.XFM set ft=delphi
 " Delphi package file
 au BufNewFile,BufRead *.dpk,*.DPK set ft=delphi
-
-" C/C++ source files options
+"}}}
+" .vimrc {{{
+au BufNewFile,BufRead *vimrc call SetVimRCOptions()
+function! SetVimRCOptions()
+  setlocal foldmethod=marker
+endfunction
+"}}}
+" C/C++ {{{
 au FileTYpe c,cpp call SetCOptions()
 function! SetCOptions()
-  set foldmethod=syntax
-  set foldnestmax=1
+  setlocal foldmethod=syntax
+  setlocal foldnestmax=1
 endfunction
+"}}}
 
-"
 " Features {{{1
 "
 " These options and commands enable some very useful features in Vim, that
@@ -205,9 +234,6 @@ au InsertLeave * set rnu
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
 
-" Use <F11> to toggle between 'paste' and 'nopaste'
-set pastetoggle=<F11>
-
 
 "------------------------------------------------------------
 " Indentation options {{{1
@@ -242,6 +268,9 @@ nnoremap <C-L> :nohl<CR><C-L>
 " F8 to toggle tagbar
 nmap <F8> :TagbarToggle<CR>
 
+" Use <F11> to toggle between 'paste' and 'nopaste'
+set pastetoggle=<F11>
+
 " Fat fingers
 nmap :Q :q
 nmap :W :w
@@ -254,6 +283,9 @@ nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 " buffers
 nmap <Left> :bprevious<CR>
 nmap <Right> :bnext<CR>
+" tabs
+nmap <Up> gT
+nmap <Down> gt
 " windows
 nmap <C-Up> <C-W>k
 nmap <C-Down> <C-W>j
