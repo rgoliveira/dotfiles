@@ -78,6 +78,13 @@ function! SetJSOptions()
   hi clear Conceal
 endfunction
 
+" calendar {{{1
+
+let g:calendar_first_day = "sunday"
+let g:calendar_time_zone = "-0300"
+let g:calendar_date_endian = "little"
+let g:calendar_view = "agenda"
+
 " Filetype detection {{{1
 
 " General {{{
