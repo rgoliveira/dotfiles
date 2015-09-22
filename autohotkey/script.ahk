@@ -9,7 +9,7 @@
 ; Functions {{{1
 
 TrayTip_Changed(what, newValue, duration:=1, option:=1) {
-    TrayTip, %what%  changed, %newValue%, duration, option
+    TrayTip, %what% changed, %newValue%, duration, option
 }
 
 ToggleCapsLock(showTrayTip:=false) {
