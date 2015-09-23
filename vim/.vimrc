@@ -108,12 +108,19 @@ function! SetVimRCOptions()
 endfunction
 "}}}
 " C/C++ {{{
-au FileTYpe c,cpp call SetCOptions()
+au FileType c,cpp call SetCOptions()
 function! SetCOptions()
   setlocal foldmethod=syntax
   setlocal foldnestmax=1
 endfunction
 "}}}
+" Autohotkey {{{
+au FileType autohotkey call SetAHKOptions()
+function! SetAHKOptions()
+  setlocal foldmethod=marker
+  setlocal foldnestmax=1
+endfunction
+" }}}
 
 " Features {{{1
 "
