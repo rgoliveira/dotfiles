@@ -10,6 +10,7 @@
 " manually run pathogen file
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
+call pathogen#helptags()
 
 " Themes {{{1
 
@@ -23,6 +24,12 @@ let g:airline_theme = 'tomorrow'
 if has('gui_running')
   set guifont=DejaVu_Sans_Mono:h10:cANSI
 endif
+
+" ultisnips {{{1
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsSnippetDirectories=["vim-snippets"]
+
 
 " Airline (and extensions) {{{1
 
