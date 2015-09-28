@@ -92,6 +92,10 @@ let g:calendar_time_zone = "-0300"
 let g:calendar_date_endian = "little"
 let g:calendar_view = "agenda"
 
+" vimoutliner {{{1
+
+let g:vo_fold_length = 'max'
+
 " Filetype detection {{{1
 
 " General {{{
@@ -299,6 +303,7 @@ nmap :W :w
 " (C)hange to (D)irectory of (C)urrent file
 " command CDC cd %:p:h
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+nnoremap ,lcd :lcd %:p:h<CR>:pwd<CR>
 
 " In normal mode, arrow keys are used to navigate...
 " buffers
