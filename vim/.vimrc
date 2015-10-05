@@ -305,6 +305,9 @@ nmap :W :w
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 nnoremap ,lcd :lcd %:p:h<CR>:pwd<CR>
 
+" follow file/web links
+nnoremap ,go :Utl ol<cr>
+
 " In normal mode, arrow keys are used to navigate...
 " buffers
 nmap <Left> :bprevious<CR>
