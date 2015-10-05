@@ -14,15 +14,18 @@ call pathogen#helptags()
 
 " Themes {{{1
 
-colorscheme Tomorrow-Night-Eighties
-let g:airline_theme = 'tomorrow'
-"colorscheme slate
-"let g:airline_theme = 'wombat'
+if has('gui_running')
+  colorscheme Tomorrow-Night-Eighties
+  let g:airline_theme = 'tomorrow'
+else
+  colorscheme slate
+  let g:airline_theme = 'wombat'
+endif
 
 " GUI specific {{{1
 
 if has('gui_running')
-  set guifont=DejaVu_Sans_Mono:h10:cANSI
+  set guifont=DejaVu\ Sans\ Mono
 endif
 
 " ultisnips {{{1
@@ -33,7 +36,9 @@ let g:UltiSnipsSnippetDirectories=["vim-snippets"]
 
 " Airline (and extensions) {{{1
 
-let g:airline#extensions#tabline#enabled = 1
+if has('gui_running')
+  let g:airline#extensions#tabline#enabled = 1
+endif
 
 " Syntastic {{{1
 
