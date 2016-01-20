@@ -46,8 +46,10 @@ Capslock::Ctrl
     Gui, Add, Text,, Function Keys:
     Gui, Add, Text,, F12 = Calculator
 
-    Gui, Add, Text,, Others:
-    Gui, Add, Text,, Arrow Up/Down = Volume Up/Down:
+    Gui, Add, Text,, Media:
+    Gui, Add, Text,, Arrow Up/Down = Volume Up/Down
+    Gui, Add, Text,, Arrow Left/Right = Previous/Next
+    Gui, Add, Text,, Space = Play/Pause
     Gui, Show, Center W200, Actions
   KeyWait, RWin
     Gui, Destroy
@@ -60,6 +62,9 @@ return
 ; RWin + Up/Down -> Volume Up/Down
 >#Down::Volume_Down
 >#Up::Volume_Up
+>#Right::Media_Next
+>#Left::Media_Prev
+>#Space::Media_Play_Pause
 
 ;}}}
 
