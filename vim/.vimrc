@@ -137,6 +137,15 @@ function! SetAHKOptions()
   setlocal foldnestmax=1
 endfunction
 " }}}
+" Python {{{
+au FileType python call SetPyOptions()
+function! SetPyOptions()
+  setlocal foldmethod=indent
+  setlocal foldtext=substitute(getline(v:foldstart),'\\t','\ \ \ \ ','g')
+  setlocal foldnestmax=1
+  setlocal shiftwidth=4
+endfunction
+"}}}
 
 " Features {{{1
 "
@@ -310,8 +319,11 @@ nmap :W :w
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 nnoremap ,lcd :lcd %:p:h<CR>:pwd<CR>
 
+" Utl.vim mappings
 " follow file/web links
-nnoremap ,go :Utl ol<cr>
+nnoremap ,go :Utl<cr>
+" create ref link based on current word
+nnoremap ,refl ciw<url:#r=<esc>pa><esc>
 
 " In normal mode, arrow keys are used to navigate...
 " buffers
@@ -325,6 +337,11 @@ nmap <C-Up> <C-W>k
 nmap <C-Down> <C-W>j
 nmap <C-Left> <C-W>h
 nmap <C-Right> <C-W>l
+
+" Use space to toggle folds
+nnoremap <space> za
+" In visual mode, create fold
+vnoremap <space> zf
 "------------------------------------------------------------
 
 "------------------------------------------------------------
