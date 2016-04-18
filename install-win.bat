@@ -42,20 +42,22 @@ if %errorlevel% EQU 0 (
 :::::::::::::::::
 :: Emacs Setup ::
 :::::::::::::::::
-echo Emacs dotfiles setup in progress...
+:: disabled
+::
+REM echo Emacs dotfiles setup in progress...
 
-set emacsdir=%dothome%\vim
+REM set emacsdir=%dothome%\vim
 
-:: cleanup
-echo   - Cleaning up old files/links (if exist)...
-del /Q /S %USERPROFILE%\.emacs.d    >nul 2>&1
-del /Q /S %USERPROFILE%\.emacs      >nul 2>&1
-:: set up emacs home via user environment variable
-setx HOME %USERPROFILE% >nul 2>&1
+REM :: cleanup
+REM echo   - Cleaning up old files/links (if exist)...
+REM del /Q /S %USERPROFILE%\.emacs.d    >nul 2>&1
+REM del /Q /S %USERPROFILE%\.emacs      >nul 2>&1
+REM :: set up emacs home via user environment variable
+REM setx HOME %USERPROFILE% >nul 2>&1
 
-echo   - Creating new links...
-mklink    %USERPROFILE%\.emacs    %emacsdir%\.emacs   >nul 2>&1
-mklink /D %USERPROFILE%\.emacs.d  %emacsdir%\.emacs.d >nul 2>&1
+REM echo   - Creating new links...
+REM mklink    %USERPROFILE%\.emacs    %emacsdir%\.emacs   >nul 2>&1
+REM mklink /D %USERPROFILE%\.emacs.d  %emacsdir%\.emacs.d >nul 2>&1
 
 :::::::::
 :: fin ::
