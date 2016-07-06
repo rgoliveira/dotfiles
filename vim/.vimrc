@@ -67,7 +67,7 @@ let g:table_mode_header_fillchar="="
 
 " use only for html/css
 let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+autocmd FileType html,css,handlebars,mustache EmmetInstall
 
 " vim-javascript {{{1
 
