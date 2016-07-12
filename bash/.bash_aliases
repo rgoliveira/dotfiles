@@ -20,7 +20,7 @@ alias gk='gitk --all&'
 alias gls='git log --pretty=format:"%C(green)%h|%ad%C(red)%d %C(reset)%s %C(yellow)[%cn]" --decorate --date=relative'
 alias gll='git log --pretty=format:"%C(green)%h|%ad %C(red)%d %C(reset)%s %C(yellow)[%cn]" --decorate --numstat --date=relative'
 alias gllast='gll -1'
-alias gdlast='git diff -1'
+alias gdlast='git diff HEAD^'
 
 # others
 alias y='yes'
