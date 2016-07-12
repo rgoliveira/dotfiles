@@ -12,6 +12,6 @@ hash stow 2>/dev/null || {
 dothome=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 rm -rf ~/.vim ~/.vimrc ~/.gvimrc
 stow -t ~ -d $dothome vim
-rm -rf ~/.bashrc
+rm -rf ~/.bashrc ~/.bash_aliases
 stow -t ~ -d $dothome bash
 
