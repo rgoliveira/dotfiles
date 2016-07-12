@@ -2,5 +2,6 @@
 emacs/.emacs.d/elpa
 emacs/.emacs.d/auto-save-list
 emacs/#*#
+*.swp
 
 vim/.vim/doc
