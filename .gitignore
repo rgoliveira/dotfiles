@@ -5,3 +5,4 @@ emacs/#*#
 *.swp
 
 vim/.vim/doc
+vim/.vim/init.vim

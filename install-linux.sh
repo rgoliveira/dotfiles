@@ -10,8 +10,14 @@ hash stow 2>/dev/null || {
 }
 
 dothome=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+# setup vim
 rm -rf ~/.vim ~/.vimrc ~/.gvimrc
 stow -t ~ -d $dothome vim
+# setup neovim
+mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+ln -s ~/.vim $XDG_CONFIG_HOME/nvim
+ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+# setup bash
 rm -rf ~/.bashrc ~/.bash_aliases
 stow -t ~ -d $dothome bash
 
