@@ -25,4 +25,5 @@ alias gdlast='git diff HEAD^'
 
 # others
 alias y='yes'
+alias tree='tree -I "node_modules"'
 
