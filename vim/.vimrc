@@ -22,6 +22,14 @@ else
   let g:airline_theme = 'wombat'
 endif
 
+" NeoVim {{{1
+
+if has('nvim')
+  set clipboard+=unnamedplus
+endif
+
+" }}}
+
 " GUI specific {{{1
 
 if has('gui_running')
