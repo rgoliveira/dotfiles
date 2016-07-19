@@ -91,7 +91,6 @@ autocmd FileType html,css,handlebars,mustache EmmetInstall
 
 " vim-javascript {{{1
 
-let g:javascript_conceal = 1
 let g:javascript_conceal_function   = "ƒ"
 "let g:javascript_conceal_null       = "ø"
 "let g:javascript_conceal_this       = "@"
