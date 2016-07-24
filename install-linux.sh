@@ -14,7 +14,8 @@ dothome=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 rm -rf ~/.vim ~/.vimrc ~/.gvimrc
 stow -t ~ -d $dothome vim
 # setup neovim
-mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+mkdir -p ${XDG_CONFIG_HOME:=$HOME}/.config
+rm -rf $XDG_CONFIG_HOME/.nvim/init.vim $XDG_CONFIG_HOME/.nvim
 ln -s ~/.vim $XDG_CONFIG_HOME/nvim
 ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 # setup bash
