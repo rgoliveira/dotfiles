@@ -48,17 +48,16 @@ if has('gui_running')
   let g:airline#extensions#tabline#enabled = 1
 endif
 
-" Syntastic {{{1
+" Neomake {{{1
 
-" ps.: these are the recommend for new users, as in its github page
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
+autocmd! BufWritePost * Neomake
+let g:neomake_open_list = 2
+" javascript
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_javascript_eslint_maker = {
+    \ 'args': ['--no-color', '--format', 'compact', '--config', '.eslintrc.json'],
+    \ 'errorformat': '%f: line %l\, col %c\, %m'
+    \ }
 
 " ctrlp {{{1
 
