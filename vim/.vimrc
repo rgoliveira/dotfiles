@@ -130,7 +130,7 @@ au BufNewFile,BufRead *.xfm,*.XFM set ft=delphi
 au BufNewFile,BufRead *.dpk,*.DPK set ft=delphi
 "}}}
 " .vimrc {{{
-au BufNewFile,BufRead *vimrc call SetVimRCOptions()
+au BufNewFile,BufRead *vimrc,*.vim call SetVimRCOptions()
 function! SetVimRCOptions()
   setlocal foldmethod=marker
 endfunction
