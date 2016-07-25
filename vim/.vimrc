@@ -14,13 +14,8 @@ call pathogen#helptags()
 
 " Themes {{{1
 
-if has('gui_running')
-  colorscheme Tomorrow-Night-Eighties
-  let g:airline_theme = 'tomorrow'
-else
-  colorscheme slate
-  let g:airline_theme = 'wombat'
-endif
+colorscheme Tomorrow-Night-Eighties
+let g:airline_theme = 'tomorrow'
 
 " NeoVim {{{1
 
@@ -29,7 +24,6 @@ if has('nvim')
 endif
 
 " }}}
-
 " GUI specific {{{1
 
 if has('gui_running')
