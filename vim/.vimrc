@@ -362,6 +362,10 @@ inoremap <C-S-j> <Esc>:m .+1<CR>==gi
 inoremap <C-S-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-S-j> :m '>+1<CR>gv=gv
 vnoremap <C-S-k> :m '<-2<CR>gv=gv
+
+" always use very magic
+nnoremap / /\v
+cnoremap %s/ %s/\v
 "------------------------------------------------------------
 
 "------------------------------------------------------------
