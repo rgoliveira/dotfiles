@@ -28,6 +28,9 @@ echo   - Creating new links...
 mklink    %USERPROFILE%\_vimrc    %vimdir%\.vimrc   >nul 2>&1
 mklink    %USERPROFILE%\_gvimrc   %vimdir%\.gvimrc  >nul 2>&1
 mklink /D %USERPROFILE%\vimfiles  %vimdir%\.vim     >nul 2>&1
+:: nvim files
+mklink /D %USERPROFILE%\AppData\Local\nvim          %vimdir%\.vim     >nul 2>&1
+mklink    %USERPROFILE%\AppData\Local\nvim\init.vim %vimdir%\.vimrc   >nul 2>&1
 
 :: set context menu for folders
 echo.

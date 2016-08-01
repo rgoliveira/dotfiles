@@ -14,3 +14,17 @@ REGEDIT4
 [HKEY_CLASSES_ROOT\Directory\Background\shell\VimHere\command]
 @="C:\\Program Files (x86)\\Vim\\vim74\\gvim.exe -c \"cd %V\""
 
+[HKEY_CLASSES_ROOT\Folder\shell\nvimHere]
+@="Open NeoVim here"
+"Icon"="C:\\bin\\Neovim\\neovim-qt\\bin\\nvim-qt.exe"
+
+[HKEY_CLASSES_ROOT\Folder\shell\nvimHere\command]
+@="C:\\bin\\Neovim\\neovim-qt\\bin\\nvim-qt.exe -- -c \"cd %1\""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\nvimHere]
+@="Open NeoVim here"
+"Icon"="C:\\bin\\Neovim\\neovim-qt\\bin\\nvim-qt.exe"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\nvimHere\command]
+@="C:\\bin\\Neovim\\neovim-qt\\bin\\nvim-qt.exe -- -c \"cd %V\""
+
