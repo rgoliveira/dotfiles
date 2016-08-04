@@ -15,7 +15,11 @@ call pathogen#helptags()
 " Themes {{{1
 
 colorscheme Tomorrow-Night-Eighties
-let g:airline_theme = 'tomorrow'
+if has('nvim')
+  let g:airline_theme = 'wombat'
+else
+  let g:airline_theme = 'tomorrow'
+endif
 
 " NeoVim {{{1
 
@@ -27,7 +31,9 @@ endif
 " GUI specific {{{1
 
 if has('gui_running')
-  set guifont=DejaVu\ Sans\ Mono
+  set guifont=DejaVu\ Sans\ Mono\ For\ PowerLine
+elseif has('nvim')
+  Guifont DejaVu Sans Mono For PowerLine:h10
 endif
 
 " ultisnips {{{1
@@ -41,6 +47,18 @@ let g:UltiSnipsSnippetDirectories=["vim-snippets"]
 if has('gui_running')
   let g:airline#extensions#tabline#enabled = 1
 endif
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 
 " Neomake {{{1
 
