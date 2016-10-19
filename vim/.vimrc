@@ -176,6 +176,13 @@ function! SetPyOptions()
   setlocal shiftwidth=4
 endfunction
 "}}}
+" markdown {{{
+au FileType markdown call SetMarkdownOptions()
+function! SetMarkdownOptions()
+  let g:markdown_fenced_languages=["cs"]
+  set wrap linebreak breakindent showbreak=↳ shiftwidth=4
+endfunction
+"}}}
 
 " Features {{{1
 "
