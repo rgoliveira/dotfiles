@@ -30,10 +30,10 @@ endif
 " }}}
 " GUI specific {{{1
 
-if has('gui_running')
+if has('nvim')
+  GuiFont DejaVu Sans Mono For PowerLine:h10
+elseif has('gui_running')
   set guifont=DejaVu\ Sans\ Mono\ For\ PowerLine
-elseif has('nvim')
-  Guifont DejaVu Sans Mono For PowerLine:h10
 endif
 
 " ultisnips {{{1
