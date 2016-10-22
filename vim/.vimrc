@@ -124,6 +124,7 @@ let g:javascript_conceal_function   = "ƒ"
 au BufRead,BufNewFile *.js call SetJSOptions()
 function! SetJSOptions()
   setlocal foldmethod=syntax
+  setlocal foldnestmax=1
   setlocal conceallevel=2
   " disable highligh for Conceal
   hi clear Conceal
