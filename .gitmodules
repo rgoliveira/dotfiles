@@ -83,3 +83,12 @@
 [submodule "vim/.vim/bundle/neomake"]
 	path = vim/.vim/bundle/neomake
 	url = https://github.com/neomake/neomake.git
+[submodule "vim/.vim/bundle/deoplete"]
+	path = vim/.vim/bundle/deoplete
+	url = https://github.com/Shougo/deoplete.nvim.git
+[submodule "vim/.vim/bundle/deoplete-ternjs"]
+	path = vim/.vim/bundle/deoplete-ternjs
+	url = https://github.com/carlitux/deoplete-ternjs
+[submodule "vim/.vim/bundle/tern_for_vim"]
+	path = vim/.vim/bundle/tern_for_vim
+	url = https://github.com/ternjs/tern_for_vim.git
