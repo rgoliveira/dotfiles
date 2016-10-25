@@ -394,6 +394,10 @@ vnoremap <C-S-k> :m '<-2<CR>gv=gv
 " always use very magic
 nnoremap / /\v
 cnoremap %s/ %s/\v
+
+" quickfix prev/next
+nnoremap <F5> :cprevious<cr>
+nnoremap <F6> :cnext<cr>
 "------------------------------------------------------------
 
 "------------------------------------------------------------
