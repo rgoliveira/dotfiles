@@ -398,6 +398,10 @@ cnoremap %s/ %s/\v
 " quickfix prev/next
 nnoremap <F5> :cprevious<cr>
 nnoremap <F6> :cnext<cr>
+
+" list todo lines
+nnoremap ,t :vimgrep /<Bslash>vtodo<Bslash>s*<Bslash>:/j % <bar> copen<cr>
+
 "------------------------------------------------------------
 
 "------------------------------------------------------------
