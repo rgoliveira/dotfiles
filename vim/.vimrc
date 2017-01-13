@@ -186,6 +186,29 @@ function! SetMarkdownOptions()
   setlocal wrap linebreak breakindent showbreak=↳ shiftwidth=4
 endfunction
 "}}}
+" RGO todo {{{
+au BufNewFile,BufRead *.todo.md call SetRGOOptions()
+function! SetRGOOptions()
+  " tags
+  syn match RGOtodoTag      '\v\+[^ ]+\ze( (\@|\+|::)|\s*$)'
+  hi def link RGOtodoTag      NonText
+  command! -nargs=1 RGOtodoTagSearch vimgrep /\v.{-1,}\zs\+[^ ]*<args>[^ ]*( (\@|\+|::)|\s*$)/gj % | copen
+  nnoremap <buffer> ,ft :RGOtodoTagSearch<space>
+
+  " contexts
+  syn match RGOtodoContext  '\v\@[^ ]+\ze( (\@|\+|::)|\s*$)'
+  hi def link RGOtodoContext  NonText
+  command! -nargs=1 RGOtodoContextSearch vimgrep /\v.{-1,}\zs(\@|\+|::)[^ ]*<args>[^ ]*( (\@|\+|::)|\s*$)/gj % | copen
+  nnoremap <buffer> ,fc :RGOtodoContextSearch<space>
+
+  " meta
+  syn match RGOtodoMeta     '\v::[^ ]+\ze( (\@|\+|::)|\s*$)'
+  hi def link RGOtodoMeta     NonText
+  command! -nargs=1 RGOtodoMetaSearch vimgrep /\v.{-1,}\zs::[^ ]*<args>[^ ]*( (\@|\+|::)|\s*$)/gj % | copen
+  nnoremap <buffer> ,fm :RGOtodoMetaSearch<space>
+
+endfunction
+"}}}
 
 " Features {{{1
 "
