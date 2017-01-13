@@ -146,6 +146,9 @@ au BufNewFile,BufRead *.dfm,*.DFM set ft=delphi
 au BufNewFile,BufRead *.xfm,*.XFM set ft=delphi
 " Delphi package file
 au BufNewFile,BufRead *.dpk,*.DPK set ft=delphi
+
+" don't care for "reminder"
+au BufNewFile,BufRead *.rem,*.ret set ft=
 "}}}
 " .vimrc {{{
 au BufNewFile,BufRead *vimrc,*.vim call SetVimRCOptions()
