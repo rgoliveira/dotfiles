@@ -359,8 +359,6 @@ nnoremap ,lcd :lcd %:p:h<CR>:pwd<CR>
 " Utl.vim mappings
 " follow file/web links
 nnoremap ,go :Utl<cr>
-" create ref link based on current word
-nnoremap ,refl ciw<url:#r=<esc>pa><esc>
 
 " :browse oldfiles
 nnoremap ,bo :bro ol<cr>
