@@ -395,9 +395,10 @@ vnoremap <C-S-k> :m '<-2<CR>gv=gv
 nnoremap / /\v
 cnoremap %s/ %s/\v
 
-" quickfix prev/next
+" quickfix prev/next/close
 nnoremap <F5> :cprevious<cr>
 nnoremap <F6> :cnext<cr>
+nnoremap <F7> :cclose<cr>
 
 " list todo lines
 nnoremap ,t :vimgrep /<Bslash>vtodo<Bslash>s*<Bslash>:/j % <bar> copen<cr>
