@@ -183,7 +183,7 @@ endfunction
 au FileType markdown call SetMarkdownOptions()
 function! SetMarkdownOptions()
   let g:markdown_fenced_languages=["cs"]
-  set wrap linebreak breakindent showbreak=↳ shiftwidth=4
+  setlocal wrap linebreak breakindent showbreak=↳ shiftwidth=4
 endfunction
 "}}}
 
