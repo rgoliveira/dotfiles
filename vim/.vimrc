@@ -390,6 +390,9 @@ nnoremap <mycustomleader>go :Utl<cr>
 
 " :browse oldfiles
 nnoremap <mycustomleader>bo :bro ol<cr>
+" browse old files with filter
+command! -nargs=1 FilterBrowseOldfiles filter /\v<args>/ browse oldfiles
+nnoremap <mycustomleader>fbo :FilterBrowseOldfiles<space>
 
 " In normal mode, arrow keys are used to navigate...
 " buffers
