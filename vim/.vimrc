@@ -12,6 +12,8 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 call pathogen#helptags()
 
+let g:mycustomleader=","
+
 " Themes {{{1
 
 colorscheme Tomorrow-Night-Eighties
@@ -193,19 +195,19 @@ function! SetRGOOptions()
   syn match RGOtodoTag      '\v\+[^ ]+\ze( (\@|\+|::)|\s*$)'
   hi def link RGOtodoTag      NonText
   command! -nargs=1 RGOtodoTagSearch vimgrep /\v.{-1,}\zs\+[^ ]*<args>[^ ]*( (\@|\+|::)|\s*$)/gj % | copen
-  nnoremap <buffer> ,ft :RGOtodoTagSearch<space>
+  nnoremap <buffer> <mycustomleader>ft :RGOtodoTagSearch<space>
 
   " contexts
   syn match RGOtodoContext  '\v\@[^ ]+\ze( (\@|\+|::)|\s*$)'
   hi def link RGOtodoContext  NonText
   command! -nargs=1 RGOtodoContextSearch vimgrep /\v.{-1,}\zs(\@|\+|::)[^ ]*<args>[^ ]*( (\@|\+|::)|\s*$)/gj % | copen
-  nnoremap <buffer> ,fc :RGOtodoContextSearch<space>
+  nnoremap <buffer> <mycustomleader>fc :RGOtodoContextSearch<space>
 
   " meta
   syn match RGOtodoMeta     '\v::[^ ]+\ze( (\@|\+|::)|\s*$)'
   hi def link RGOtodoMeta     NonText
   command! -nargs=1 RGOtodoMetaSearch vimgrep /\v.{-1,}\zs::[^ ]*<args>[^ ]*( (\@|\+|::)|\s*$)/gj % | copen
-  nnoremap <buffer> ,fm :RGOtodoMetaSearch<space>
+  nnoremap <buffer> <mycustomleader>fm :RGOtodoMetaSearch<space>
 
 endfunction
 "}}}
@@ -379,15 +381,15 @@ nmap :W :w
 
 " (C)hange to (D)irectory of (C)urrent file
 " command CDC cd %:p:h
-nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
-nnoremap ,lcd :lcd %:p:h<CR>:pwd<CR>
+nnoremap <mycustomleader>cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <mycustomleader>lcd :lcd %:p:h<CR>:pwd<CR>
 
 " Utl.vim mappings
 " follow file/web links
-nnoremap ,go :Utl<cr>
+nnoremap <mycustomleader>go :Utl<cr>
 
 " :browse oldfiles
-nnoremap ,bo :bro ol<cr>
+nnoremap <mycustomleader>bo :bro ol<cr>
 
 " In normal mode, arrow keys are used to navigate...
 " buffers
@@ -425,7 +427,7 @@ nnoremap <F6> :cnext<cr>
 nnoremap <F7> :cclose<cr>
 
 " list todo lines
-nnoremap ,t :vimgrep /<Bslash>vtodo<Bslash>s*<Bslash>:/j % <bar> copen<cr>
+nnoremap <mycustomleader>t :vimgrep /<Bslash>vtodo<Bslash>s*<Bslash>:/j % <bar> copen<cr>
 
 "------------------------------------------------------------
 
