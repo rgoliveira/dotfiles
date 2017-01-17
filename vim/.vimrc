@@ -12,7 +12,7 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 call pathogen#helptags()
 
-let g:mycustomleader=","
+map , <leader>
 
 " Themes {{{1
 
@@ -195,19 +195,19 @@ function! SetRGOOptions()
   syn match RGOtodoTag      '\v\+[^ ]+\ze( (\@|\+|::)|\s*$)'
   hi def link RGOtodoTag      NonText
   command! -nargs=1 RGOtodoTagSearch vimgrep /\v.{-1,}\zs\+[^ ]*<args>[^ ]*( (\@|\+|::)|\s*$)/gj % | copen
-  nnoremap <buffer> <mycustomleader>ft :RGOtodoTagSearch<space>
+  nnoremap <buffer> <leader>ft :RGOtodoTagSearch<space>
 
   " contexts
   syn match RGOtodoContext  '\v\@[^ ]+\ze( (\@|\+|::)|\s*$)'
   hi def link RGOtodoContext  NonText
   command! -nargs=1 RGOtodoContextSearch vimgrep /\v.{-1,}\zs(\@|\+|::)[^ ]*<args>[^ ]*( (\@|\+|::)|\s*$)/gj % | copen
-  nnoremap <buffer> <mycustomleader>fc :RGOtodoContextSearch<space>
+  nnoremap <buffer> <leader>fc :RGOtodoContextSearch<space>
 
   " meta
   syn match RGOtodoMeta     '\v::[^ ]+\ze( (\@|\+|::)|\s*$)'
   hi def link RGOtodoMeta     NonText
   command! -nargs=1 RGOtodoMetaSearch vimgrep /\v.{-1,}\zs::[^ ]*<args>[^ ]*( (\@|\+|::)|\s*$)/gj % | copen
-  nnoremap <buffer> <mycustomleader>fm :RGOtodoMetaSearch<space>
+  nnoremap <buffer> <leader>fm :RGOtodoMetaSearch<space>
 
 endfunction
 "}}}
@@ -381,18 +381,18 @@ nmap :W :w
 
 " (C)hange to (D)irectory of (C)urrent file
 " command CDC cd %:p:h
-nnoremap <mycustomleader>cd :cd %:p:h<CR>:pwd<CR>
-nnoremap <mycustomleader>lcd :lcd %:p:h<CR>:pwd<CR>
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <leader>lcd :lcd %:p:h<CR>:pwd<CR>
 
 " Utl.vim mappings
 " follow file/web links
-nnoremap <mycustomleader>go :Utl<cr>
+nnoremap <leader>go :Utl<cr>
 
 " :browse oldfiles
-nnoremap <mycustomleader>bo :bro ol<cr>
+nnoremap <leader>bo :bro ol<cr>
 " browse old files with filter
 command! -nargs=1 FilterBrowseOldfiles filter /\v<args>/ browse oldfiles
-nnoremap <mycustomleader>fbo :FilterBrowseOldfiles<space>
+nnoremap <leader>fbo :FilterBrowseOldfiles<space>
 
 " In normal mode, arrow keys are used to navigate...
 " buffers
@@ -430,7 +430,7 @@ nnoremap <F6> :cnext<cr>
 nnoremap <F7> :cclose<cr>
 
 " list todo lines
-nnoremap <mycustomleader>t :vimgrep /<Bslash>vtodo<Bslash>s*<Bslash>:/j % <bar> copen<cr>
+nnoremap <leader>t :vimgrep /<Bslash>vtodo<Bslash>s*<Bslash>:/j % <bar> copen<cr>
 
 "------------------------------------------------------------
 
