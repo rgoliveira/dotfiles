@@ -204,7 +204,7 @@ function! SetRGOOptions()
   nnoremap <buffer> <leader>fc :RGOtodoContextSearch<space>
 
   " meta
-  syn match RGOtodoMeta     '\v::[^ ]+\ze( (\@|\+|::)|\s*$)'
+  syn match RGOtodoMeta     '\v::\w+\=([^ ]+|"[^"]+")\ze( (\@|\+|::)|\s*$)'
   hi def link RGOtodoMeta     NonText
   command! -nargs=1 RGOtodoMetaSearch vimgrep /\v.{-1,}\zs::[^ ]*<args>[^ ]*( (\@|\+|::)|\s*$)/gj % | copen
   nnoremap <buffer> <leader>fm :RGOtodoMetaSearch<space>
