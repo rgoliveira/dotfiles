@@ -191,6 +191,11 @@ endfunction
 " RGO todo {{{
 au BufNewFile,BufRead *.todo.md call SetRGOOptions()
 function! SetRGOOptions()
+  " done tasks
+  "hi todoDone guifg=
+  syn match RGOtodoDone       '\(^\s*\)\@<=-\s(DONE)'
+  hi def link RGOtodoDone     NonText
+
   " tags
   syn match RGOtodoTag      '\v\+[^ ]+\ze( (\@|\+|::)|\s*$)'
   hi def link RGOtodoTag      NonText
