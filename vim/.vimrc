@@ -191,6 +191,20 @@ endfunction
 " RGO todo {{{
 au BufNewFile,BufRead *.todo.md call SetRGOOptions()
 function! SetRGOOptions()
+  " priority colors (based on the palette from the theme Tomorrow Night Eighties: https://github.com/chriskempson/tomorrow-theme)
+  " red
+  hi todoPriorityA guifg=#f2777a
+  " yellow
+  hi todoPriorityB guifg=#ffcc66
+  " green
+  hi todoPriorityC guifg=#99cc99
+  syn match RGOtodoPriorityA       '^\s*-\s(A)'
+  syn match RGOtodoPriorityB       '^\s*-\s(B)'
+  syn match RGOtodoPriorityC       '^\s*-\s(C)'
+  hi def link RGOtodoPriorityA     todoPriorityA
+  hi def link RGOtodoPriorityB     todoPriorityB
+  hi def link RGOtodoPriorityC     todoPriorityC
+
   " done tasks
   "hi todoDone guifg=
   syn match RGOtodoDone       '\(^\s*\)\@<=-\s(DONE)'
