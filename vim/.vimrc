@@ -209,6 +209,9 @@ function! SetRGOOptions()
   command! -nargs=1 RGOtodoMetaSearch vimgrep /\v.{-1,}\zs::[^ ]*<args>[^ ]*( (\@|\+|::)|\s*$)/gj % | copen
   nnoremap <buffer> <leader>fm :RGOtodoMetaSearch<space>
 
+  " abbreviations
+  " current date/time
+  iab <expr> dts "\"".strftime("%c")."\""
 endfunction
 "}}}
 
