@@ -52,7 +52,18 @@ if has('gui_running')
   let g:airline#extensions#tabline#enabled = 1
 endif
 
-let g:airline_powerline_fonts = 1
+if has("win32")
+  "Windows options
+  let g:airline_left_sep = ''
+  let g:airline_left_alt_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_alt_sep = ''
+  let g:airline_symbols_branch = ''
+  let g:airline_symbols_readonly = ''
+  let g:airline_symbols_linenr = ''  "
+else
+  let g:airline_powerline_fonts = 1
+endif
 
 " deoplete {{{1
 
