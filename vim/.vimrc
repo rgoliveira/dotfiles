@@ -52,6 +52,8 @@ if has('gui_running')
   let g:airline#extensions#tabline#enabled = 1
 endif
 
+let g:airline_powerline_fonts = 1
+
 " deoplete {{{1
 
 let g:deoplete#enable_at_startup = 1
@@ -80,18 +82,6 @@ if exists('g:plugs["tern_for_vim"]')
 endif
 
 " }}}
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-
 " Neomake {{{1
 
 autocmd! BufWritePost * Neomake
