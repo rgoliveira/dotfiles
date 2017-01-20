@@ -33,7 +33,9 @@ endif
 " GUI specific {{{1
 
 if has('nvim')
-  GuiFont DejaVu Sans Mono For PowerLine:h10
+  if has('gui_running')
+    GuiFont DejaVu Sans Mono For PowerLine:h10
+  endif
 elseif has('gui_running')
   set guifont=DejaVu\ Sans\ Mono\ For\ PowerLine
 endif
