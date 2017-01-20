@@ -12,10 +12,16 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 call pathogen#helptags()
 
+map , <leader>
+
 " Themes {{{1
 
 colorscheme Tomorrow-Night-Eighties
-let g:airline_theme = 'tomorrow'
+if has('nvim')
+  let g:airline_theme = 'wombat'
+else
+  let g:airline_theme = 'tomorrow'
+endif
 
 " NeoVim {{{1
 
@@ -26,8 +32,10 @@ endif
 " }}}
 " GUI specific {{{1
 
-if has('gui_running')
-  set guifont=DejaVu\ Sans\ Mono
+if has('nvim')
+  GuiFont DejaVu Sans Mono For PowerLine:h10
+elseif has('gui_running')
+  set guifont=DejaVu\ Sans\ Mono\ For\ PowerLine
 endif
 
 " ultisnips {{{1
@@ -61,6 +69,7 @@ augroup omnifuncs
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup end
+
 " tern
 if exists('g:plugs["tern_for_vim"]')
   let g:tern_show_argument_hints = 'on_hold'
@@ -69,6 +78,18 @@ if exists('g:plugs["tern_for_vim"]')
 endif
 
 " }}}
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
 " Neomake {{{1
 
 autocmd! BufWritePost * Neomake
@@ -156,6 +177,9 @@ au BufNewFile,BufRead *.dfm,*.DFM set ft=delphi
 au BufNewFile,BufRead *.xfm,*.XFM set ft=delphi
 " Delphi package file
 au BufNewFile,BufRead *.dpk,*.DPK set ft=delphi
+
+" don't care for "reminder"
+au BufNewFile,BufRead *.rem,*.ret set ft=
 "}}}
 " .vimrc {{{
 au BufNewFile,BufRead *vimrc,*.vim call SetVimRCOptions()
@@ -184,6 +208,58 @@ function! SetPyOptions()
   setlocal foldtext=substitute(getline(v:foldstart),'\\t','\ \ \ \ ','g')
   setlocal foldnestmax=1
   setlocal shiftwidth=4
+endfunction
+"}}}
+" markdown {{{
+au FileType markdown call SetMarkdownOptions()
+function! SetMarkdownOptions()
+  let g:markdown_fenced_languages=["cs"]
+  setlocal wrap linebreak breakindent showbreak=↳ shiftwidth=4
+endfunction
+"}}}
+" RGO todo {{{
+au BufNewFile,BufRead *.todo.md call SetRGOOptions()
+function! SetRGOOptions()
+  " priority colors (based on the palette from the theme Tomorrow Night Eighties: https://github.com/chriskempson/tomorrow-theme)
+  " red
+  hi todoPriorityA guifg=#f2777a
+  " yellow
+  hi todoPriorityB guifg=#ffcc66
+  " green
+  hi todoPriorityC guifg=#99cc99
+  syn match RGOtodoPriorityA       '^\s*-\s(A)'
+  syn match RGOtodoPriorityB       '^\s*-\s(B)'
+  syn match RGOtodoPriorityC       '^\s*-\s(C)'
+  hi def link RGOtodoPriorityA     todoPriorityA
+  hi def link RGOtodoPriorityB     todoPriorityB
+  hi def link RGOtodoPriorityC     todoPriorityC
+
+  " done tasks
+  "hi todoDone guifg=
+  syn match RGOtodoDone       '\(^\s*\)\@<=-\s(DONE)'
+  hi def link RGOtodoDone     NonText
+
+  " tags
+  syn match RGOtodoTag      '\v\+[^ ]+\ze( (\@|\+|::)|\s*$)'
+  hi def link RGOtodoTag      NonText
+  command! -nargs=1 RGOtodoTagSearch vimgrep /\v.{-1,}\zs\+[^ ]*<args>[^ ]*( (\@|\+|::)|\s*$)/gj % | copen
+  nnoremap <buffer> <leader>ft :RGOtodoTagSearch<space>
+
+  " contexts
+  syn match RGOtodoContext  '\v\@[^ ]+\ze( (\@|\+|::)|\s*$)'
+  hi def link RGOtodoContext  NonText
+  command! -nargs=1 RGOtodoContextSearch vimgrep /\v.{-1,}\zs(\@|\+|::)[^ ]*<args>[^ ]*( (\@|\+|::)|\s*$)/gj % | copen
+  nnoremap <buffer> <leader>fc :RGOtodoContextSearch<space>
+
+  " meta
+  syn match RGOtodoMeta     '\v::\w+\=([^ ]+|"[^"]+")\ze( (\@|\+|::)|\s*$)'
+  hi def link RGOtodoMeta     NonText
+  command! -nargs=1 RGOtodoMetaSearch vimgrep /\v.{-1,}\zs::[^ ]*<args>[^ ]*( (\@|\+|::)|\s*$)/gj % | copen
+  nnoremap <buffer> <leader>fm :RGOtodoMetaSearch<space>
+
+  " abbreviations
+  " current date/time
+  iab <expr> dts "\"".strftime("%c")."\""
 endfunction
 "}}}
 
@@ -356,14 +432,18 @@ nmap :W :w
 
 " (C)hange to (D)irectory of (C)urrent file
 " command CDC cd %:p:h
-nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
-nnoremap ,lcd :lcd %:p:h<CR>:pwd<CR>
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <leader>lcd :lcd %:p:h<CR>:pwd<CR>
 
 " Utl.vim mappings
 " follow file/web links
-nnoremap ,go :Utl<cr>
-" create ref link based on current word
-nnoremap ,refl ciw<url:#r=<esc>pa><esc>
+nnoremap <leader>go :Utl<cr>
+
+" :browse oldfiles
+nnoremap <leader>bo :bro ol<cr>
+" browse old files with filter
+command! -nargs=1 FilterBrowseOldfiles filter /\v<args>/ browse oldfiles
+nnoremap <leader>fbo :FilterBrowseOldfiles<space>
 
 " In normal mode, arrow keys are used to navigate...
 " buffers
@@ -394,6 +474,15 @@ vnoremap <C-S-k> :m '<-2<CR>gv=gv
 " always use very magic
 nnoremap / /\v
 cnoremap %s/ %s/\v
+
+" quickfix prev/next/close
+nnoremap <F5> :cprevious<cr>
+nnoremap <F6> :cnext<cr>
+nnoremap <F7> :cclose<cr>
+
+" list todo lines
+nnoremap <leader>t :vimgrep /<Bslash>vtodo<Bslash>s*<Bslash>:/j % <bar> copen<cr>
+
 "------------------------------------------------------------
 
 "------------------------------------------------------------
