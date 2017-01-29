@@ -265,6 +265,9 @@ function! SetRGOOptions()
   iab <expr> dts "\"".strftime("%c")."\""
 endfunction
 "}}}
+" gitcommit {{{
+autocmd Filetype gitcommit setlocal spell textwidth=72
+"}}}
 
 " Features {{{1
 "
