@@ -442,6 +442,8 @@ nnoremap <leader>bo :bro ol<cr>
 command! -nargs=1 FilterBrowseOldfiles filter /\v<args>/ browse oldfiles
 nnoremap <leader>fbo :FilterBrowseOldfiles<space>
 
+" Remove Trailing Whitespaces
+nnoremap <leader>rtw :%s/\v\s+$<CR>
 " In normal mode, arrow keys are used to navigate...
 " buffers
 nmap <Left> :bprevious<CR>
