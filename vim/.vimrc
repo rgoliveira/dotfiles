@@ -150,7 +150,7 @@ function! SetJSOptions()
   setlocal foldmethod=syntax
   setlocal foldnestmax=1
   setlocal conceallevel=2
-  " disable highligh for Conceal
+  " disable highlight for Conceal
   hi clear Conceal
 endfunction
 
