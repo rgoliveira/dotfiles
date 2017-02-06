@@ -423,12 +423,6 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
-" F8 to toggle tagbar
-nmap <F8> :TagbarToggle<CR>
-
-" Use <F11> to toggle between 'paste' and 'nopaste'
-set pastetoggle=<F11>
-
 " Fat fingers
 nmap :Q :q
 nmap :W :w
@@ -478,10 +472,18 @@ vnoremap <C-S-k> :m '<-2<CR>gv=gv
 nnoremap / /\v
 cnoremap %s/ %s/\v
 
+" loclist prev/next/close
+nnoremap <F2> :lprevious<cr>
+nnoremap <F3> :lnext<cr>
+nnoremap <F4> :lclose<cr>
+
 " quickfix prev/next/close
 nnoremap <F5> :cprevious<cr>
 nnoremap <F6> :cnext<cr>
 nnoremap <F7> :cclose<cr>
+
+" F8 to toggle tagbar
+nmap <F8> :TagbarToggle<CR>
 
 " list todo lines
 nnoremap <leader>t :vimgrep /<Bslash>vtodo<Bslash>s*<Bslash>:/j % <bar> copen<cr>
