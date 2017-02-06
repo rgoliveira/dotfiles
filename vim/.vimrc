@@ -103,6 +103,8 @@ let g:neomake_javascript_eslint_maker = {
     \ 'args': ['--no-color', '--format', 'compact', '--config', '.eslintrc.json'],
     \ 'errorformat': '%f: line %l\, col %c\, %m'
     \ }
+let g:neomake_python_enabled_makers = ['flake8']
+let g:neomake_javascript_flake8_maker = {}
 
 " ctrlp {{{1
 
