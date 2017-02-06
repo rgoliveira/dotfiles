@@ -92,3 +92,9 @@
 [submodule "vim/.vim/bundle/tern_for_vim"]
 	path = vim/.vim/bundle/tern_for_vim
 	url = https://github.com/ternjs/tern_for_vim.git
+[submodule "vim/.vim/bundle/Dockerfile.vim"]
+	path = vim/.vim/bundle/Dockerfile.vim
+	url = https://github.com/ekalinin/Dockerfile.vim
+[submodule "vim/.vim/bundle/syntastic"]
+	path = vim/.vim/bundle/syntastic
+	url = https://github.com/vim-syntastic/syntastic
