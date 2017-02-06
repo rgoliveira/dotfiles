@@ -223,6 +223,9 @@ endfunction
 " RGO todo {{{
 au BufNewFile,BufRead *.todo.md call SetRGOOptions()
 function! SetRGOOptions()
+  " disable markdownError highlight group so we can use underscores in words
+  hi link markdownError NONE
+
   " priority colors (based on the palette from the theme Tomorrow Night Eighties: https://github.com/chriskempson/tomorrow-theme)
   " red
   hi todoPriorityA guifg=#f2777a
