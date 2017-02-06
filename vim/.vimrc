@@ -270,6 +270,9 @@ function! SetRGOOptions()
   iab <expr> dts "\"".strftime("%c")."\""
 endfunction
 "}}}
+" gitcommit {{{
+autocmd Filetype gitcommit setlocal spell textwidth=72
+"}}}
 
 " Features {{{1
 "
@@ -449,6 +452,7 @@ nnoremap <leader>fbo :FilterBrowseOldfiles<space>
 
 " Remove Trailing Whitespaces
 nnoremap <leader>rtw :%s/\v\s+$<CR>
+
 " In normal mode, arrow keys are used to navigate...
 " buffers
 nmap <Left> :bprevious<CR>
