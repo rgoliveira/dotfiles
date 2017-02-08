@@ -104,7 +104,7 @@ let g:neomake_javascript_eslint_maker = {
     \ 'errorformat': '%f: line %l\, col %c\, %m'
     \ }
 let g:neomake_python_enabled_makers = ['flake8']
-let g:neomake_javascript_flake8_maker = {}
+let g:neomake_python_flake8_maker = {}
 
 " ctrlp {{{1
 
