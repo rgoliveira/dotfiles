@@ -5,8 +5,8 @@ alias bsrc='source ~/.bashrc'
 alias rm='rm -i'
 
 # ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
+alias ll='ls -halF'
+alias la='ls -hA'
 alias l='ls -CF'
 
 # git aliases
