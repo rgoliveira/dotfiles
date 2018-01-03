@@ -101,3 +101,9 @@
 [submodule "vim/.vim/bundle/vim-slim"]
 	path = vim/.vim/bundle/vim-slim
 	url = git://github.com/slim-template/vim-slim.git
+[submodule "vim/.vim/bundle/vim-tmux-clipboard"]
+	path = vim/.vim/bundle/vim-tmux-clipboard
+	url = git@github.com:roxma/vim-tmux-clipboard.git
+[submodule "vim/.vim/bundle/vim-jsx"]
+	path = vim/.vim/bundle/vim-jsx
+	url = git@github.com:mxw/vim-jsx
