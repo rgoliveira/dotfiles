@@ -7,10 +7,28 @@
 
 " init {{{1
 
-" manually run pathogen file
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
-call pathogen#helptags()
+" plug
+call plug#begin('~/.vim/plugged')
+Plug 'kien/ctrlp.vim'
+Plug 'mattn/emmet-vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'godlygeek/tabular'
+Plug 'majutsushi/tagbar'
+Plug 'bling/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'pangloss/vim-javascript'
+Plug 'elzr/vim-json'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'chriskempson/base16-vim'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'neomake/neomake'
+Plug 'Shougo/deoplete.nvim'
+Plug 'slim-template/vim-slim'
+Plug 'mxw/vim-jsx'
+call plug#end()
 
 map , <leader>
 
@@ -30,15 +48,6 @@ if has('nvim')
 endif
 
 " }}}
-" GUI specific {{{1
-
-if has('nvim')
-  if has('gui_running')
-    GuiFont DejaVu Sans Mono For PowerLine:h10
-  endif
-elseif has('gui_running')
-  set guifont=DejaVu\ Sans\ Mono\ For\ PowerLine
-endif
 
 " ultisnips {{{1
 
